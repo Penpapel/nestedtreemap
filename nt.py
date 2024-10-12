@@ -102,18 +102,4 @@ treemap_data = {
 st.title("Nested Treemap with Streamlit")
 
 # Display current treemap
-display_treemap(st.session_state.current_level, st.session_state.current_data_key)
-
-# Buttons for navigation
-if st.session_state.current_level > 1:
-    if st.button("Back"):
-        # Go back to the previous level
-        st.session_state.current_level, st.session_state.current_data_key = st.session_state.previous_states.pop()
-
-for label in treemap_data[1]['labels']:
-    if st.button(f"Go to {label}"):
-        # Save the current state before going to the next level
-        st.session_state.previous_states.append((st.session_state.current_level, st.session_state.current_data_key))
-        st.session_state.current_level = 2
-        st.session_state.current_data_key = label
-
+display_treemap(st.session_state
